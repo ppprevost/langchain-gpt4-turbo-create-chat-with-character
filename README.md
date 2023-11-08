@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+# Langchain GPT-4 Turbo - Create Chat with Character
+
+![Project Image](https://pasteboard.co/6pxj8bCEOuw5.png)
+
+Langchain GPT-4 Turbo Create Chat with Character is a powerful chatbot framework that leverages Langchain JS, GPT-4, React Query, Server Actions, and Next.js 14 to help you create character-driven chat experiences. This project provides a user-friendly interface and a set of tools to get you started quickly.
+
+## Features
+
+- **Characterful Chat:** Create chatbots with distinct personalities to engage users in conversations.
+
+- **Advanced Language Generation:** Utilize GPT-4 Turbo's state-of-the-art language generation for more natural and context-aware conversations.
+
+- **Customizable Chat Flow:** Design the flow of your chat conversation to suit your application's needs.
+
+- **Powered by Langchain JS:** Leverage the Langchain JS library for seamless integration with Next.js 14 and server actions.
+
+- **React Query Integration:** Make use of React Query for efficient data fetching and state management.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to start using Langchain GPT-4 Turbo for creating character-driven chat applications:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Installation:** Clone the repository and install the required dependencies.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   git clone https://github.com/yourrepository/langchain-gpt4-turbo-create-chat-with-character.git
+   cd langchain-gpt4-turbo-create-chat-with-character
+   yarn install
