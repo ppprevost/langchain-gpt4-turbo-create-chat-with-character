@@ -5,9 +5,7 @@ import { actualMood } from "@/lib/utils";
 import { useMemo } from "react";
 import { getCharacter } from "@/app/_actions";
 
-const Presentation = async ({ id }: string) => {
-  console.log(id);
-
+const Presentation = async ({ id }: { id: string }) => {
   const {
     image = "",
     name: character,
@@ -75,7 +73,7 @@ const Presentation = async ({ id }: string) => {
         </p>
         <div className="opacity-0">0</div>
       </div>
-      <div className="text-sm text-gray-700">{"ⓘ " + ("answerGenerated")}</div>
+      <div className="text-sm text-gray-700">{"ⓘ " + "answerGenerated"}</div>
     </div>
   );
 };

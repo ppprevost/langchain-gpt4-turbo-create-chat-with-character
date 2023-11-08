@@ -43,16 +43,26 @@ export const createCharacterZodSchema = z
   })
   .describe("a fictional character from a movie or a video game");
 
-export const CharacterSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  description: z.string().optional(),
-  temperature: z.number().optional(),
-  mood: z.string(),
-  image: z.string(),
-  tips: z.string().optional(),
-  prompt: z.string(),
-  lang: z.enum(["en", "fr", "es", "pt", "cn", "jp", "ru"]),
-});
+export const CharacterSchema = z
+  .object({
+    id: z.string(),
+    name: z.string(),
+    description: z.string().optional(),
+    temperature: z.number().optional(),
+    mood: z.string(),
+    image: z.string(),
+    tips: z.string().optional(),
+    prompt: z.string(),
+    lang: z.enum(["en", "fr", "es", "pt", "cn", "jp", "ru"]),
+  })
+
 
 export type CharacterSchemaType = TypeOf<typeof CharacterSchema>;
+
+export const MessageSchema = z.object({
+  id: z.string(),
+  message: z.string(),
+  user: z.string(),
+});
+
+export type MessageSchemaType = TypeOf<typeof MessageSchema>;

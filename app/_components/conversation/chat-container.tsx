@@ -1,19 +1,18 @@
 "use client";
 
-import { useIsMutating, useQuery } from "@tanstack/react-query";
-import { useState, useRef } from "react";
+
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import ChatStripe from "./chat-stripe";
 import { useCallback, useEffect } from "react";
 import GetAvatar from "./get-avatar";
 import { getMessagesByCharacterId, loadAiAnswer } from "@/app/_actions";
+import { MessageSchemaType } from "@/lib/validation";
 
 const ChatContainer = () => {
   const params = useParams<>();
-  const mutate = useIsMutating({ mutationKey: ["postMessage"] });
-  const [messages, setMessages] = useState([]);
 
-  const isLoaded = useRef(mutate);
+  const [messages, setMessages] = useState<MessageSchemaType[]>([]);
 
   useEffect(() => {
     getMessagesByCharacterId(params.characterId[0]).then((msgs) =>
@@ -27,17 +26,6 @@ const ChatContainer = () => {
       loadAiAnswer(params.characterId[0], msg);
     }
   }, [messages]);
-
-  console.log({ messages });
-
-  useEffect(() => {
-    if (mutate) {
-      isLoaded.current = mutate;
-    }
-    if (isLoaded.current && !mutate && messages) {
-      isLoaded.current = 0;
-    }
-  }, [messages, mutate]);
 
   const isAi = useCallback((messageObject) => {
     return messageObject.user !== "user";
