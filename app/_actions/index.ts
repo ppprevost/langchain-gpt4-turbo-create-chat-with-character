@@ -90,7 +90,7 @@ export const generateWholeCharacter = async ({
   );
 
   const chatModel = new ChatOpenAI({
-    modelName: "gpt-4-turbo", // Or gpt-3.5-turbo
+    modelName: "gpt-3.5-turbo", // Or gpt-3.5-turbo
     temperature: 1, // For best results with the output fixing parser,
     openAIApiKey: process.env.OPENAI_API_KEY,
   });
