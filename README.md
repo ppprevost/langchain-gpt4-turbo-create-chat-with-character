@@ -2,7 +2,7 @@
 
 # Langchain GPT-4 Turbo - Create Chat with Character
 
-![Project Image](https://pasteboard.co/6pxj8bCEOuw5.png)
+![Project Image](https://gcdnb.pbrd.co/images/6pxj8bCEOuw5.png?o=1)
 
 Langchain GPT-4 Turbo Create Chat with Character is a powerful chatbot framework that leverages Langchain JS, GPT-4, React Query, Server Actions, and Next.js 14 to help you create character-driven chat experiences. This project provides a user-friendly interface and a set of tools to get you started quickly.
 
