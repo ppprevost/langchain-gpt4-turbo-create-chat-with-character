@@ -265,7 +265,7 @@ console.log(methods.formState);
           loading={
             methods.formState.isSubmitting || isLoadingCreateOrUpdateCharacter
           }
-          className="block float-right mt"
+          className="block float-right my-2"
           type="submit"
         >
           {"submit character"}

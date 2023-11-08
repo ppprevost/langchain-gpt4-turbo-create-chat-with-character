@@ -8,8 +8,6 @@ import { revalidatePath } from "next/cache";
 const Page = async ({ params }: { params: { characterId: string[] } }) => {
   const characters = await getCharacters();
   const characterId = params.characterId;
-  console.log(characterId);
-
   const id = characterId?.[0];
 
   return (
@@ -43,7 +41,7 @@ const Page = async ({ params }: { params: { characterId: string[] } }) => {
             </form>
 
             <Presentation id={id} />
-            <ChatContainer id={id} />
+            <ChatContainer />
             <TextareaChat id={id} />
           </>
         )}

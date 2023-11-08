@@ -2,6 +2,7 @@ import { capitalize } from "lodash";
 import Link from "next/link";
 import Image from "next/image";
 import { CharacterSchemaType } from "@/lib/validation";
+import ButtonDeleteCharacter from "./button-delete";
 
 const CharactersList = async ({
   characters,
@@ -41,6 +42,7 @@ const CharactersList = async ({
               {"edit"}
             </Link>
           )}
+          {edit && <ButtonDeleteCharacter id={l.id} />}
         </span>
       </div>
     </div>

@@ -11,7 +11,7 @@ const TextareaChat = async ({ id }: { id: string }) => {
         await updateLocalMessagesServer(id, message);
         revalidatePath("/chat/" + id);
       }}
-      className="flex gap-2 p-2 w-full bg-[#4a4a58]"
+      className="flex mb-6 gap-2 p-2 w-full bg-[#4a4a58]"
     >
      
       <SendButton />

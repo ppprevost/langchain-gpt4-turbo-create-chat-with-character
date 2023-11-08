@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 fixed top-0 z-50">
           <div className="flex-1">
             <a href="/chat" className="btn btn-ghost normal-case text-xl">
               Character Chat App
@@ -33,12 +33,12 @@ export default function RootLayout({
           </div>
         </div>
         <QueryProviders>{children}</QueryProviders>
+        <footer className="footer footer-center p-6 bg-base-300 text-base-content">
+          <aside>
+            <p>Copyright © 2023 - All right reserved www.github.com/ppprevost</p>
+          </aside>
+        </footer>
       </body>
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-        <aside>
-          <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
-        </aside>
-      </footer>
     </html>
   );
 }

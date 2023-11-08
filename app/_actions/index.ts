@@ -63,7 +63,7 @@ export async function updateCharacter(id: string, data: FormValues) {
   }
 }
 
-export async function deleteTodo(id: string) {
+export async function deleteCharacterById(id: string) {
   try {
     await prisma.character.delete({ where: { id } });
   } catch (error) {
@@ -195,13 +195,10 @@ export const getMessages = () => {
   return localStorage.getItem("messages");
 };
 
-export const deleteConversation = (id:string) => {
+export const deleteConversation = (id: string) => {
   const localStorage = new LocalStorage("./public");
   const messages = getMessages();
-  console.log(messages);
   delete messages[id];
-
-  
   localStorage.setItem("messages", JSON.stringify(messages));
 };
 
