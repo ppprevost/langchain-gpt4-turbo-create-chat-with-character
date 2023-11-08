@@ -23,6 +23,7 @@ Follow these steps to start using Langchain GPT-4 Turbo for creating character-d
 1. **Installation:** Clone the repository and install the required dependencies.
 
    ```bash
-   git clone https://github.com/yourrepository/langchain-gpt4-turbo-create-chat-with-character.git
-   cd langchain-gpt4-turbo-create-chat-with-character
-   yarn install
+   git clone
+   yarn 
+   npx prisma generate
+   yarn dev
