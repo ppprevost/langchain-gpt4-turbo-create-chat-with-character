@@ -1,0 +1,78 @@
+"use client";
+
+import { useIsMutating, useQuery } from "@tanstack/react-query";
+import { useState, useRef } from "react";
+import { useParams } from "next/navigation";
+import ChatStripe from "./chat-stripe";
+import { useCallback, useEffect } from "react";
+import GetAvatar from "./get-avatar";
+import { getMessagesByCharacterId, loadAiAnswer } from "@/app/_actions";
+
+const ChatContainer = () => {
+  const params = useParams<>();
+  const mutate = useIsMutating({ mutationKey: ["postMessage"] });
+  const [messages, setMessages] = useState([]);
+
+  const isLoaded = useRef(mutate);
+
+  useEffect(() => {
+    getMessagesByCharacterId(params.characterId[0]).then((msgs) =>
+      setMessages(msgs)
+    );
+  }, [params]);
+
+  useEffect(() => {
+    if (messages.length && messages[messages.length - 1].user === "user") {
+      const msg = messages[messages.length - 1].message;
+      loadAiAnswer(params.characterId[0], msg);
+    }
+  }, [messages]);
+
+  console.log({ messages });
+
+  useEffect(() => {
+    if (mutate) {
+      isLoaded.current = mutate;
+    }
+    if (isLoaded.current && !mutate && messages) {
+      isLoaded.current = 0;
+    }
+  }, [messages, mutate]);
+
+  const isAi = useCallback((messageObject) => {
+    return messageObject.user !== "user";
+  }, []);
+
+  return (
+    <>
+      {messages?.map((messageObject) => {
+        return (
+          <ChatStripe
+            isAi={messageObject.user === "user"}
+            key={messageObject.id}
+          >
+            <div
+              className={`w-9 h-9 rounded-5 ${
+                isAi(messageObject)
+                  ? "cursor-pointer bg-green-500"
+                  : "bg-purple-600"
+              } flex justify-center items-center`}
+            >
+              <GetAvatar isAi={isAi(messageObject)} />
+            </div>
+
+            <div
+              className={`flex-1 ${
+                messageObject.error ? "text-red-500" : "text-gray-400"
+              } whitespace-break-spaces text-lg max-w-full overflow-x-scroll`}
+            >
+              {messageObject.message}
+            </div>
+          </ChatStripe>
+        );
+      })}
+    </>
+  );
+};
+
+export default ChatContainer;
