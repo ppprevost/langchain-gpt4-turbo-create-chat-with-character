@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { capitalize } from "lodash";
 import { actualMood } from "@/lib/utils";
-import { getCharacter } from "@/app/_actions";
+import { getCharacter } from "@/app/_actions/characters";
 
 const Presentation = async ({ id }: { id: string }) => {
   const {

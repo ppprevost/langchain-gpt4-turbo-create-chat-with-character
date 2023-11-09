@@ -1,7 +1,7 @@
 "use client";
 
 import { Modal, Button, Alert } from "react-daisyui";
-import { generateAll } from "@/app/_actions";
+import { generateAll } from "@/app/_actions/generate";
 import Description from "./description";
 import SelectLang from "./lang-select";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";

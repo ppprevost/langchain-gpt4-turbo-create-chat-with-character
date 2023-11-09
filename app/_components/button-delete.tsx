@@ -1,13 +1,13 @@
 "use client";
 
-import { deleteCharacterById } from "@/app/_actions";
+import { deleteCharacterById } from "@/app/_actions/characters";
 import { useMutation } from "@tanstack/react-query";
 import { Link, Modal, Button } from "react-daisyui";
 import { useCallback, useRef } from "react";
 
 const ButtonDeleteCharacter = ({ id }: { id: string }) => {
   const { mutate: deleteTheCharacter } = useMutation({
-    mutationFn: (id) => deleteCharacterById(id),
+    mutationFn: (id:string) => deleteCharacterById(id),
   });
   const ref = useRef<HTMLDialogElement>(null);
 

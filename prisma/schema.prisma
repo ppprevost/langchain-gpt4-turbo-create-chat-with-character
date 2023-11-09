@@ -15,7 +15,7 @@ model Character {
   name        String
   faq         String?    // Array of objects, represented as JSON
   description String?
-  temperature String   // Zod's number maps to Prisma's Float
+  temperature String   
   mood        String
   image       String
   tips        String?    // Array of strings, represented as JSON

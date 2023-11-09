@@ -48,7 +48,7 @@ export const CharacterSchema = z
     id: z.string(),
     name: z.string(),
     description: z.string().optional(),
-    temperature: z.number().optional(),
+    temperature: z.string(),
     mood: z.string(),
     image: z.string(),
     tips: z.string().optional(),

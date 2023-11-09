@@ -1,6 +1,7 @@
 "use client";
 
-import { generateCharacterImage, updateCharacter } from "@/app/_actions";
+import { updateCharacter, createCharacter } from "@/app/_actions/characters";
+import { generateCharacterImage } from "@/app/_actions/generate";
 
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import {
@@ -22,7 +23,7 @@ import Image from "next/image";
 import Wrapper from "./wrapper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import SelectLang from "./lang-select";
-import { createCharacter } from "@/app/_actions";
+
 import { z } from "zod";
 import { validationCreateOrUpdateCharacterSchema } from "@/lib/validation";
 import Faq from "./faq";
@@ -61,15 +62,12 @@ const CharacterBuilder = ({ character }: CharacterBuilderProps) => {
 
   const onSubmit = useCallback(
     async (data: FormValues) => {
-      if (Number(data.temperature) > 1) {
-        data.temperature = (Number(data.temperature) / 100).toString();
-      }
-
+     
       await createOrUpdateTheCharacter(data);
     },
     [createOrUpdateTheCharacter]
   );
-console.log(methods.formState);
+  console.log(methods.formState);
 
   useEffect(() => {
     if (character) {
@@ -78,11 +76,10 @@ console.log(methods.formState);
         image: character?.image,
         description: character?.description,
         tips: character.tips,
-
         prompt: character?.prompt,
         mood: character.mood,
         lang: character.lang,
-        temperature: (Number(character.temperature) * 100).toString(),
+        temperature: character.temperature,
       });
     }
   }, [character, methods]);

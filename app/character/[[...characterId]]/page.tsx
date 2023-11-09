@@ -1,5 +1,5 @@
 import CharacterForm from "@/app/_components/character-form";
-import { getCharacter } from "../../_actions";
+import { getCharacter } from "../../_actions/characters";
 
 export default async function Page({
   params,

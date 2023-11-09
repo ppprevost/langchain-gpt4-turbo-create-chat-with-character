@@ -1,16 +1,15 @@
 "use client";
 
-
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import ChatStripe from "./chat-stripe";
 import { useCallback, useEffect } from "react";
 import GetAvatar from "./get-avatar";
-import { getMessagesByCharacterId, loadAiAnswer } from "@/app/_actions";
+import { getMessagesByCharacterId, loadAiAnswer } from "@/app/_actions/messages";
 import { MessageSchemaType } from "@/lib/validation";
 
 const ChatContainer = () => {
-  const params = useParams<>();
+  const params = useParams<{ characterId: string | string[] }>();
 
   const [messages, setMessages] = useState<MessageSchemaType[]>([]);
 
@@ -27,7 +26,7 @@ const ChatContainer = () => {
     }
   }, [messages]);
 
-  const isAi = useCallback((messageObject) => {
+  const isAi = useCallback((messageObject:MessageSchemaType) => {
     return messageObject.user !== "user";
   }, []);
 

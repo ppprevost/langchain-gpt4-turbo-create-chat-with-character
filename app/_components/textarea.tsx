@@ -1,5 +1,5 @@
 import { revalidatePath } from "next/cache";
-import { updateLocalMessagesServer } from "../_actions";
+import { updateLocalMessagesServer } from "../_actions/messages";
 import SendButton from "./send-button";
 
 const TextareaChat = async ({ id }: { id: string }) => {

@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="navbar bg-base-100 fixed top-0 z-50">
+        <div className="navbar bg-base-100  top-0 z-50 mb-4">
           <div className="flex-1">
             <a href="/chat" className="btn btn-ghost normal-case text-xl">
               Character Chat App
